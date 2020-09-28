@@ -1,7 +1,7 @@
 # Author: Varnit Tewari
-# Homework 2
 # 
 
+import sympy.sandbox.tests.test_indexed_integrals
 import matplotlib.pyplot as plt
 import numpy as np
 import statistics as stt
@@ -160,6 +160,5 @@ class Otsu:
 
 # object creation passing the name of the data file and alpha
 # prameters : name of the data file and alpha
-otsu = Otsu("Abominable_Data_For_Clustering__v44.csv", 1)
-# otsu = Otsu("Mystery_Data_2195.csv", 100)
+otsu = Otsu(sys.argv[1], 1)
 otsu.main()
