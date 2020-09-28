@@ -1,10 +1,10 @@
 #
 #   A problem function which uses intentionally obtuse variable names and almost no comments.
-#   The goal is for students to find the maximum of the function using gradient ascent,
+#   The goal is to find the maximum of the function using gradient ascent,
 #   axially-aligned grid search, full grid search, or some combination of these techniques.
-#   CSCI-420 students who wish to try using Genetic Algorithms can try that too.
+#   
 #
-#   Dr. Thomas B. Kinsman
+#   
 #
 import math
 import numpy as np
@@ -22,7 +22,7 @@ def urxyz( exes_parameter, why, zircon, rta, rtb, rtc ) :
     return Pegasus
 
 
-def BirdbathFunc459( Harry, Dumbledore, Sirius ) :
+def ShapeOfAStructure( Harry, Dumbledore, Sirius ) :
     Snuffleupagus   = np.array( [ -204e-9, 20e-9, 427.854e-6, 999.87597e-3, 995.41971e-2  ] )
     Susan           = np.array( [  0.99254, -0.67955, -0.85840 ] )
     Ernie           = np.array( Harry )
@@ -98,7 +98,7 @@ def convex_optimization():
         for roll in rolls:
             for tilt in tilts:
                 for twist in twists:
-                    fraction = BirdbathFunc459(roll, tilt, twist)
+                    fraction = ShapeOfAStructure(roll, tilt, twist)
 
                     # If this fraction is better than the previous best,
                     # save it as the new best, and save the paramaters
@@ -124,13 +124,13 @@ if __name__ == '__main__' :
 
     #  Emit a trial test case here, etc...:
     print('\n\n\n')
-    nn  = BirdbathFunc459( -31, 11.774184580272616, 8.526793561079431 )
+    nn  = ShapeOfAStructure( -31, 11.774184580272616, 8.526793561079431 )
     print('Fraction of Water = ', nn, '\t<-- Example test case results' )
-    nn  = BirdbathFunc459( -26.735304997711946, 17.901837682497572, -10.325665449578272 )
+    nn  = ShapeOfAStructure( -26.735304997711946, 17.901837682497572, -10.325665449578272 )
     print('Fraction of Water = ', nn, '\t<-- Example test case results' )
-    nn  = BirdbathFunc459( -34.323504434231815, -1.8566215272517583, 39.72819474238093 )
+    nn  = ShapeOfAStructure( -34.323504434231815, -1.8566215272517583, 39.72819474238093 )
     print('Fraction of Water = ', nn, '\t<-- Example test case results' )
-    nn  = BirdbathFunc459( -12, -1, 14 )
+    nn  = ShapeOfAStructure( -12, -1, 14 )
     print('Fraction of Water = ', nn, '\t<-- Example test case results' )
 
 
