@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # Author: Varnit Tewari
-# Homework 3
 # 
 
 import matplotlib.pyplot as plt
@@ -25,7 +24,7 @@ class Classifier:
     # knowing what column number age, height ad class are present in.
     # Stores all the data in four arrays that we later use in the code
     # Converts all the string vales to float
-    def read_abominable_data(self):
+    def read_data(self):
 
         data_open_file = open(self.data_file,"r")       #opens the file
         # default values for each column for this file
@@ -255,77 +254,13 @@ class Classifier:
         plt.show()              # shows the plots
 
     
-    # This is the function that does all the work in regards to writing
-    # to the trained python file. All of it is hard coded for now using the 
-    # object.write() function. Used spaces while writing for the correct indentation
-    # in the trained file.
-    # best_threshold: vaue of the threshold being used for classification
-    # target_side: the side which the target variable is on
-    def create_trained_file(self, best_threshold, target_side):
-        file_object = open("HW02_Tewari_Varnit_Trained.py", "w")         # craeting the file that we need to write
-
-        file_object.write('#!/usr/bin/python\n')
-        file_object.write('import sys         # library to print the current date and time\n\n')
-        file_object.write('"""\nTrained class implemented to complete the required tasks like\n')
-        file_object.write('reading the data and classification. And therefore, printing results as well.\n"""\n')
-
-        file_object.write('class Trained:\n\n')
-
-        file_object.write('    """\n    Constructor function - used for initialization.\n')
-        file_object.write('    Takes the file to read as a parameter\n    """\n')
-        file_object.write('    def __init__(self, file_to_read):\n')
-        file_object.write('        self.file_to_read = file_to_read\n\n')
-
-        file_object.write('    """\n    This is the function where the classification is implemented.\n')
-        file_object.write('    It reads in the data and goes line by line through every character (separated\n')
-        file_object.write('    by comma) in the line.\n')
-        file_object.write('    First it finds the column number where age is and then uses the values of\n')
-        file_object.write('    age and the threshold value to print if it is assam or bhutan.\n')
-        file_object.write('    """\n')
-
-        file_object.write('    def read_csv_and_classify(self):\n')
-
-        file_object.write('        column_num = 0\n')
-        file_to_open ='        data_file_object = open(self.file_to_read,"r")              # opens the file to read\n'
-        file_object.write(file_to_open)
-        file_object.write('        data_file = data_file_object.read().splitlines()       # reads the lines\n')
-        file_object.write('        first_line = data_file[0]       # takes the first line\n')
-        file_object.write('        first_line = first_line.split(",")                  # splits the line separated by comma\n')
-        file_object.write('        for word_idx in range(0,len(first_line)):\n')
-        file_object.write('            character = first_line[word_idx].strip()       # checks for white spaces\n')
-        file_object.write('            if character == "Age":                 # looks for age column\n')
-        file_object.write('                column_num = word_idx                 # stores the column number\n')
-        file_object.write('                break\n')
-        file_object.write('        data_file = data_file[1:]                 # removes the column row\n')
-
-        file_object.write('        for line in data_file:\n')
-        file_object.write('            line = line.split(",")                  # splits the line separated by comma\n')
-
-        # here we check for the target side and depending on the side, choose the conditonal statements
-        if target_side == "left":
-            line_to_write = '            if float(line[column_num]) > '+str(best_threshold)+':\n'
-        else:
-            line_to_write = '            if float(line[column_num]) <= '+str(best_threshold)+':\n'
-        file_object.write(line_to_write)
-        file_object.write('                print("-1")                 # Assam\n')
-        file_object.write('            else:\n')
-        file_object.write('                print("+1")                 # Bhutan\n')
-
-        file_object.write('        data_file_object.close()                           # closes the file\n\n')
-
-        file_object.write('    """\n    Main function is used only to call other functions.\n    """\n')
-        file_object.write('    def main(self):\n        self.read_csv_and_classify()\n\n')
-        file_object.write('trained = Trained(sys.argv[1])\ntrained.main()\n')
-
-        file_object.close()             # closing the file we wrote
 
     # main function that drives the whole code.
     # Its sole purpose is to call the functions 
     def main(self):
-        self.read_abominable_data()
+        self.read_data()
         best_threshold, target_side = self.classification_algorithm(self.height_data_to_quantize,5,0)
         best_threshold, target_side = self.classification_algorithm(self.age_data_to_quantize, 2,1)
-        self.create_trained_file(best_threshold, target_side)
 
 
 # object creation passing the name of the data file
